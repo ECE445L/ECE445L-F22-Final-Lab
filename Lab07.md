@@ -420,4 +420,10 @@ By preparation day, you should have a very clear idea about your project. You sh
 | TA Review | 9am 10/28/2022 |
 | **Final PCB Submission** | 10am 11/01/2022 |
 
+---
 
+## Notes
+
+1. Make sure that the Eagle 
+2. The components on the back of the board need to be mirrored
+3. 
