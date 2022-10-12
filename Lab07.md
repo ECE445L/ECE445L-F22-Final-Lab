@@ -21,18 +21,25 @@
       - [1.6.3 Processor Selection](#163-processor-selection)
       - [1.6.4 Optional Components](#164-optional-components)
       - [1.6.5 Design Competition](#165-design-competition)
-  - [Pre-preparation](#pre-preparation)
-    - [Requirements Document](#requirements-document)
-    - [Parts](#parts)
-  - [Preparation](#preparation)
-    - [](#)
-    - [](#-1)
-  - [Procedure](#procedure)
-    - [Demo 1](#demo-1)
-    - [Demo 2](#demo-2)
-    - [Bonus](#bonus)
-  - [4 Deliverables](#4-deliverables)
-  - [Grading](#grading)
+  - [2 Pre-preparation](#2-pre-preparation)
+    - [2.1 Requirements Document](#21-requirements-document)
+    - [2.2 Parts](#22-parts)
+    - [2.3 Pre-preparation Deliverables](#23-pre-preparation-deliverables)
+  - [3 Preparation](#3-preparation)
+    - [3.1 Preparation Deliverables](#31-preparation-deliverables)
+  - [4 Demo](#4-demo)
+    - [4.1 Demo 1](#41-demo-1)
+    - [4.2 Demo 1 Deliverables](#42-demo-1-deliverables)
+    - [4.3 Demo 2](#43-demo-2)
+    - [4.4 Demo 2 Deliverables](#44-demo-2-deliverables)
+  - [5 Report](#5-report)
+    - [5.1 Deliverables](#51-deliverables)
+    - [5.2 Analysis and Discussion Questions](#52-analysis-and-discussion-questions)
+  - [6 Grading](#6-grading)
+  - [7 Deadlines](#7-deadlines)
+  - [8 Additional Information](#8-additional-information)
+    - [8.1 Notes](#81-notes)
+    - [8.2 Common Mistakes That Ruin Deadlines](#82-common-mistakes-that-ruin-deadlines)
 
 ---
 
@@ -111,21 +118,26 @@ through that we want. Feel free to modify if necessary.
 
 ### 1.3 Review
 
-1. TODO: datasheets
+Datasheets for all parts used in the system.
 
 ### 1.4 Stater Files
 
-> TODO: get files
-
-1. [EE445L.lbr]()
-2. [Micro USB socket library file]()
-3. [Lab7.sch]()
-4. [Lab7.brd]()
-5. [lab7_parts.csv]()
+1. [`EE445L.lbr`](hw/EE445L.lbr)
+2. [Micro USB socket library file](resources/libraries/105017-0001.lbr)
+3. [`Lab7.sch`](hw/EE445L_Lab_7_Starter.sch)
+4. [`Lab7.brd`](hw/EE445L_Lab_7_Starter.brd)
+5. [`jlcpcb2layer.dru`](hw/jlcpcb2layer.dru)
+6. [`Lab7BOM.xlsx`](resources/bom/Lab7BOM.xlsx)
 
 ### 1.5 Background
 
 In Lab 7, you will use either [EAGLE](https://www.autodesk.com/products/eagle/overview) or [KiCad](https://www.kicad.org/) to layout an embedded system. The design of the system must satisfy certain requirements. Rather than simply redesigning one of the previous labs, this embedded system must do something useful. There are some ideas posted at http://users.ece.utexas.edu/%7Evalvano/EE445L/projectideas.htm, but you have flexibility to define exactly what it is to do. If you look at [Sparkfun.com](https://www.sparkfun.com/) you will see lots of ideas of I/O devices you could attach to the system. The scope of the project is a microcontroller-based embedded system demonstrating the educational objectives of this class.
+
+![Figure 7.1](resources/images/figure_7.1.jpg)
+
+![Figure 7.2](resources/images/figure_7.2.jpg)
+
+*Figures 7.1 and 7.2: Example mock-up and eventual Lab 11 system.*
 
 ### 1.6 Project Overview
 
@@ -133,7 +145,7 @@ In Lab 7, you will use either [EAGLE](https://www.autodesk.com/products/eagle/ov
 
 1. The microcontroller must be attached to the PCB board
 2. A PCB for the system must be created
-3. Each group will produce a PCB layout (.sch and .brd file if using EAGLE)
+3. Each group will produce a PCB layout (.sch and .brd file)
 4. There must be at least two inputs, two outputs, and two interrupt service routines
 5. The final system will be an actual device with chips soldered onto the PCB
 6. The final system must fit in an appropriate enclosure
@@ -145,6 +157,8 @@ In Lab 7, you will use either [EAGLE](https://www.autodesk.com/products/eagle/ov
 
 #### 1.6.2 Constraints
 
+There are separate constraints for the [project](#162-constraints) and the [design competition](#165-design-competition). You can still get a 100 on the final project without conforming to the design competition constraints, however you cannot compete.
+
 1. Each PCB must conform to [JLCPCB's design capabilities](https://jlcpcb.com/capabilities/Capabilities)
 2. Parts that are not provided, must be purchased by the group
 3. You can use two motors and their corresponding wheels from the Lab 10 supplies, but they must be returned
@@ -153,7 +167,7 @@ In Lab 7, you will use either [EAGLE](https://www.autodesk.com/products/eagle/ov
 #### 1.6.3 Processor Selection
 
 The following is a list of the possible microcontrollers you can use for your system:
-1. TM4C123 LaunchPad: you can use female pin headers to plug the launchpad into your system
+1. TM4C123 LaunchPad: you can use female pin headers to plug the LaunchPad into your system
 2. TM4C123GH6PM chip: you can use and solder one of the SMD chips we possess
 3. Other microcontrollers: you can use the entire line of TM4C, MSP430, and MSP432 microcontrollers
 
@@ -162,15 +176,20 @@ The following is a list of the possible microcontrollers you can use for your sy
 #### 1.6.4 Optional Components
 
 1. ESP8266:
-   1. If you desire wifi capabiliities
+   1. If you desire wifi capabilities
    2. Keep in mind that the ESP8266 requires on average 80mA (can go much higher)
+
+![Figure 7.3](resources/images/figure_7.3.jpg)
+
+*Figure 7.3: ESP8266 version 1*
+
 2. Audio amp:
    1. For single channel you can use an audio amp like the MC34119 or the TPA731
    2. For stereo sound, use two separate audio channels and two speakers
    3. You can order free samples from a chip vendor like [Analog Devices](https://www.analog.com/)
 3. Accelerometers and other sensors:
    1. There are lots of devices available as free samples from chip vendors, but be aware that they may be very difficult to solder
-   2. The easiest way add sensors is to puchase a module (chip and breakout board) from a hobby store like [SparkFun](https://www.sparkfun.com/), [Adafruit](https://www.adafruit.com/), or [Pololu](https://www.pololu.com/)
+   2. The easiest way add sensors is to purchase a module (chip and breakout board) from a hobby store like [SparkFun](https://www.sparkfun.com/), [Adafruit](https://www.adafruit.com/), or [Pololu](https://www.pololu.com/)
 4. Enclosure:
    1. You may purchase an enclosure and count it toward your $60 budget
    2. You may build your enclosure separately (the enclosure will be judged on functionality and not beauty). You can use resources from [Texas InventionWorks (TIW)](https://linktr.ee/texasinventionworks) to create your box (resources used from TIW will not count toward your $60 budget). Here are some resources TIW offers:
@@ -179,20 +198,22 @@ The following is a list of the possible microcontrollers you can use for your sy
 
 #### 1.6.5 Design Competition
 
-There will be a "science fair"-like public demonstration for Lab 11. Students with the best deisgn will presented with special awards. The judging will be performed by the other ECE445L sudents by watching a YouTube video and voting on Canvas. The videos will be public, but the voting will be private.
+There will be a "science fair"-like public demonstration for Lab 11. Students with the best design will presented with special awards. The judging will be performed by the other ECE445L students by watching a YouTube video and voting on Canvas. The videos will be public, but the voting will be private.
 
-Competition restrictions:
+**Competition restrictions:**
+
 1. Only uses TM4C, MSP430, or MSP432 microcontrollers
 2. All electronics (resistors, capacitors, ICs, etc) are on the PCB
-1. LCD displays, switches, sensors, LEDs, speakers, keypads, and microphones can be off the PCB
-2. The team spends less than $60 on extra components
+3. LCD displays, switches, sensors, LEDs, speakers, keypads, and microphones can be off the PCB
+4. The team spends less than $60 on extra components
 
-Details on the $60 budget:
+**Details on the $60 budget:**
+
 1. There are two system costs you will calculate:
    1. Cost of all components (regardless of where they were obtained)
    2. Cost of all components that factor into the $60
 2. Parts that do NOT count toward the $60 budget:
-   1. Parts obtained from the ECE lab checkout counter or the [Lab7BOM.xls]()
+   1. Parts obtained from the ECE lab checkout counter or the [`Lab7BOM.xlsx`](resources/bom/Lab7BOM.xlsx)
       1. Passive components do not have to be returned
       2. Solid state components may have to be returned (please ask the checkout counter)
    2. Free samples
@@ -200,9 +221,9 @@ Details on the $60 budget:
 
 ---
 
-## Pre-preparation
+## 2 Pre-preparation
 
-### Requirements Document
+### 2.1 Requirements Document
 
 Write a one-page requirements document for the system. Refer to labs 3 and 5 for general information about requirements documents. We expect the document to change throughout the project, so keep it up to date as you progress through the design, implementation, and testing phases. Please use the following outline:
 
@@ -218,7 +239,7 @@ Write a one-page requirements document for the system. Refer to labs 3 and 5 for
    1. **Reports:** Simply state the reports for Labs 7 and 11 will be written
    2. **Outcomes:** Simply copy/paste the Lab 7 and Lab 11 deliverables
 
-### Parts
+### 2.2 Parts
 
 List the parts that the system will use. List the locations that you will acquire the parts from:
 
@@ -226,9 +247,9 @@ List the parts that the system will use. List the locations that you will acquir
 2. Professor's cabinet
 3. Places like [SparkFun](https://www.sparkfun.com/), [Adafruit](https://www.adafruit.com/), or [Pololu](https://www.pololu.com/)
 
-### Pre-preparation Deliverables
+### 2.3 Pre-preparation Deliverables
 
-1. Initial version of the requriements document
+1. Initial version of the requirements document
 2. List of parts that the system will use (include the locations that the parts will be acquired from)
 3. Datasheets of all parts that the system will use
 
@@ -243,7 +264,7 @@ You will be judged on the clarity of your project. You should be able to explain
 
 ---
 
-## Preparation
+## 3 Preparation
 
 1. Create a bill of materials (BOM) using the `Lab7BOM.xls` template and collect as many of the components as you can. The bill of materials should include all components used within the system, such as: capacitors, cables, connectors, LEDs, ICs, resistors, and your enclosure
 2. Create the schematic (`.sch`) file for the system using [EAGLE](https://www.autodesk.com/products/eagle/overview) or [KiCad](https://www.kicad.org/). You must follow these rules:
@@ -251,12 +272,13 @@ You will be judged on the clarity of your project. You should be able to explain
    2. All components must have labels (U1, R1, C1, J1, etc) shown in both the schematic and board
    3. Each IC should have a bypass cap placed as close to the component as possible (look at your component's datasheet to find the recommended size of each bypass capacitor)
    4. For resistors, specify impedance (10k ohms), wattage (1/4 watt), and tolerance (5%)
-   5. For capacitors specify capacitance (100uF, tolerance (20%), and material (cermaic, tantalum, electrolytic, etc)
+   5. For capacitors specify capacitance (100uF, tolerance (20%), and material (ceramic, tantalum, electrolytic, etc)
 3. Review the datasheets of your components to determine the values of bypass capacitors to improve performance
 4. Be clear how the system will be powered and how the system can be turned on and off. You must use a regulator on the PCB. The typical configuration has a battery or USB plug into the PCB, and off-board power switch, and then the LM2937-3.3 regulator for the 3.3V supply
 5. If the operator needs to use the reset button, bring the reset pin out to a user-reachable negative logic switch
+6. Create a system diagram to illustrate how your hardware will interact with hypothetical low level drivers
 
-### Preparation Deliverables
+### 3.1 Preparation Deliverables
 
 1. Bill of materials
 2. Open your schematic (`.sch`) file and show that it passes ERC
@@ -272,9 +294,9 @@ By preparation day, you should have a very clear idea about your project. You sh
 
 ---
 
-## Demo
+## 4 Demo
 
-### Demo 1
+### 4.1 Demo 1
 
 1. Edit your board dimensions so that the board has an area less than or equal to 30in<sup>2</sup>
 2. Create a test plan for your system (this should be a list that explains your procedure for testing and debugging your system):
@@ -292,14 +314,14 @@ By preparation day, you should have a very clear idea about your project. You sh
    7. How does the operator see the LEDs or LCD screen?
 4. Estimate or measure the supply current required by the entire system
 
-### Demo 1 Deliverables
+### 4.2 Demo 1 Deliverables
 
 1. Open your `.brd` file and show/explain your component placement
 2. Explain how external devices will connect to the PCB
 2. Show that your board fits within 30in<sup>2</sup>
 3. Explain your test plan for the system
 
-### Demo 2
+### 4.3 Demo 2
 
 1. Collect or order all parts needed to complete the project
 2. Verify that your parts match the footprints on the PCB
@@ -339,7 +361,7 @@ By preparation day, you should have a very clear idea about your project. You sh
          1. [IPC-2221 PCB via calculator](http://circuitcalculator.com/wordpress/2006/03/12/pcb-via-calculator/)
    5. Add silk screens that include:
       1. Your project's name (top silk)
-      2. Board part number (top silk)
+      2. Board number (top silk)
       3. Your group members' names (top silk)
       4. Your TAs initials (top silk)
       5. Date (top silk)
@@ -353,14 +375,19 @@ By preparation day, you should have a very clear idea about your project. You sh
 6. **Any fixes that must be done after the deadline will result in 10 points being deducted. If you have any questions, please ask before the deadline.**
 7. Enter your PCB into [jlcpcb.com](https://jlcpcb.com/) and verify that the board can be ordered for around $10 or less plus shipping
 8. Print out the PCB onto paper and ensure that the components fit on the board and the board fits in the enclosure
+
+![Figure 7.4](resources/images/figure_7.4.jpg)
+
+*Figure 7.4: Example mockup of layout using paper printout glued on cardboard (LM3S811 into PacTec box)*
+
 9. Breadboard your system as much as possible (breadboard everything that you have components for) to ensure that your system works as intended
 10. Upload your gerber files as a `.zip` to Canvas by the deadline the file should be in the format: `UTX-<year><semester><four-digit-board-number>.zip`
-   1. Get the board number from your TA
-   2. An example file name from Fall 2021 would look like this: `UTX-2021F0001.zip`
-   3. An example file name from Spring 2022 would look like this: `UTX-2022S0001.zip`
-   4. If your file is not uploaded by the deadline, you will have to pay the manufacturing and shipping costs yourself
+    1. Get the board number from your TA
+    2. An example file name from Fall 2021 would look like this: `UTX-2021F0001.zip`
+    3. An example file name from Spring 2022 would look like this: `UTX-2022S0001.zip`
+    4. If your file is not uploaded by the deadline, you will have to pay the manufacturing and shipping costs yourself
 
-### Demo 2 Deliverables
+### 4.4 Demo 2 Deliverables
 
 1. Open your `.brd` file and show that is passes DRC and fits within 30in<sup>2</sup>
 2. Show that all components fit on the printed PCB and the printed PCB fits within the enclosure
@@ -370,9 +397,9 @@ By preparation day, you should have a very clear idea about your project. You sh
 
 ---
 
-## Report
+## 5 Report
 
-###  Deliverables
+### 5.1 Deliverables
 
 1. Objectives (one page updated requirements document)
 2. Hardware Design
@@ -383,47 +410,60 @@ By preparation day, you should have a very clear idea about your project. You sh
    1. Total current estimation for the system
    2. Total cost estimation for the system
 
-### Analysis and Discussion Questions
+### 5.2 Analysis and Discussion Questions
 
 1. How will you test the system? Write out your test plan in gritty detail.
 
 ---
 
-## Grading
+## 6 Grading
 
-| Section | Description | Points |
-|---|---|---|
-| Pre-preparation | N/A | 10 |
-| Preparation | N/A | 10 |
-| Demo 1 | N/A | 10 |
-| Demo 2 | N/A | 30 |
-| Complexity | TA is convinced that the project is challenging | 10 |
-| Planning | Break up the project into smaller assignments and assign deadlines to these assignments | 10 |
-| PCB Layout | Final PCB due date is a HARD deadline | 10 |
-| TA Review | Completion grade | 10 |
-| Report: Requirements Document | Due with pre-preparatio, but updated throughout the project | 10 |
-| Report: Schematic | Heavy emphasis on the test plan | 10 |
-| Extra Credit: TIW | TIW 3D printing or laser cutting training | 5 |
-| Extra Credit: SMD Chip | TM4C123 chip used instead of LaunchPad | 10 |
-
----
-
-## Deadlines
-
-| Section | Due Date |
-|---|---|
-| Pre-preparation | 10/13/2022 |
-| Preparation | 10/18/2022 |
-| Demo 1 | 10/20/2022 |
-| Demo 2 | 10/25/2022 |
-| Report | 10/28/2022 |
-| TA Review | 9am 10/28/2022 |
-| **Final PCB Submission** | 10am 11/01/2022 |
+| Section                       | Description                                                                               | Points    |
+|-------------------------------|-------------------------------------------------------------------------------------------|-----------|
+| Pre-preparation               | N/A                                                                                       | 10        |
+| Preparation                   | N/A                                                                                       | 10        |
+| Demo 1                        | N/A                                                                                       | 10        |
+| Demo 2: Complexity            | TA is convinced that the project is challenging                                           | 10        |
+| Demo 2: Planning              | Break up the project into smaller assignments and assign deadlines to these assignments   | 10        |
+| Demo 2: PCB Layout            | Final PCB due date is a HARD deadline                                                     | 10        |
+| TA Review                     | Completion grade                                                                          | 10        |
+| Report: Requirements Document | Due with pre-preparation, but updated throughout the project                              | 10        |
+| Report: Schematic             | Heavy emphasis on the test plan                                                           | 10        |
+| Extra Credit: TIW             | TIW 3D printing or laser cutting training                                                 | 5         |
+| Extra Credit: SMD Chip        | TM4C123 chip used instead of LaunchPad                                                    | 10        |
 
 ---
 
-## Notes
+## 7 Deadlines
 
-1. Make sure that the Eagle 
-2. The components on the back of the board need to be mirrored
-3. 
+| Section                   | Due Date          |
+|---------------------------|-------------------|
+| Pre-preparation           | 10/13/2022        |
+| Preparation               | 10/18/2022        |
+| Demo 1                    | 10/20/2022        |
+| Demo 2                    | 10/25/2022        |
+| Report                    | 10/28/2022        |
+| TA Review                 | 9am 10/28/2022    |
+| **Final PCB Submission**  | 10am 11/01/2022   |
+
+---
+
+## 8 Additional Information
+
+### 8.1 Notes
+
+1. The components on the back of the board need to be mirrored
+2. Make sure that the DRC passes with [JLCPCB PCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities)
+3. JLCPCB only places top silk on layers tPlace and tNames (not tValues). Move silkscreen that you want from tValues to tNames
+4. JLCPCB only places bottom silk on layers bPlace and bNames (not bValues). Move silkscreen that you want from bValues to bNames
+
+### 8.2 Common Mistakes That Ruin Deadlines
+
+1. DRC does not pass with [JLCPCB PCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities) (there is a [`jlcpcb2layer.dru`](hw/jlcpcb2layer.dru) that contains all the JLC capabilities)
+2. Board name does not match Google Sheet submission
+3. Board size does not match Google Sheet submission
+4. Trying to cheat JLCPCB by creating two boards in one PCB file
+
+![Figure 7.5](resources/images/figure_7.5.jpg)
+
+*Figure 7.5: Example of creating two boards from one PCB*
