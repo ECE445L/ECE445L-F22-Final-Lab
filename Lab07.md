@@ -125,8 +125,6 @@ through that we want. Feel free to modify if necessary.
 
 ### 1.5 Background
 
-> TODO: change to allow KiCad?
-
 In Lab 7, you will use either [EAGLE](https://www.autodesk.com/products/eagle/overview) or [KiCad](https://www.kicad.org/) to layout an embedded system. The design of the system must satisfy certain requirements. Rather than simply redesigning one of the previous labs, this embedded system must do something useful. There are some ideas posted at http://users.ece.utexas.edu/%7Evalvano/EE445L/projectideas.htm, but you have flexibility to define exactly what it is to do. If you look at [Sparkfun.com](https://www.sparkfun.com/) you will see lots of ideas of I/O devices you could attach to the system. The scope of the project is a microcontroller-based embedded system demonstrating the educational objectives of this class.
 
 ### 1.6 Project Overview
@@ -147,7 +145,7 @@ In Lab 7, you will use either [EAGLE](https://www.autodesk.com/products/eagle/ov
 
 #### 1.6.2 Constraints
 
-1. Each PCB must conform to JLCPCB's [design capabilities](https://jlcpcb.com/capabilities/Capabilities)
+1. Each PCB must conform to [JLCPCB's design capabilities](https://jlcpcb.com/capabilities/Capabilities)
 2. Parts that are not provided, must be purchased by the group
 3. You can use two motors and their corresponding wheels from the Lab 10 supplies, but they must be returned
 4. You should NOT use a ground pour (this will introduce difficulties with debugging and fixing your board if there are any errors)
@@ -174,9 +172,8 @@ The following is a list of the possible microcontrollers you can use for your sy
    1. There are lots of devices available as free samples from chip vendors, but be aware that they may be very difficult to solder
    2. The easiest way add sensors is to puchase a module (chip and breakout board) from a hobby store like [SparkFun](https://www.sparkfun.com/), [Adafruit](https://www.adafruit.com/), or [Pololu](https://www.pololu.com/)
 4. Enclosure:
-   1. TODO: decide whether Hammond 1591ESBK is an option
-   2. You may purchase an enclosure and count it toward your $60 budget
-   3. You may build your enclosure separately (the enclosure will be judged on functionality and not beauty). You can use resources from [Texas InventionWorks (TIW)](https://linktr.ee/texasinventionworks) to create your box (resources used from TIW will not count toward your $60 budget). Here are some resources TIW offers:
+   1. You may purchase an enclosure and count it toward your $60 budget
+   2. You may build your enclosure separately (the enclosure will be judged on functionality and not beauty). You can use resources from [Texas InventionWorks (TIW)](https://linktr.ee/texasinventionworks) to create your box (resources used from TIW will not count toward your $60 budget). Here are some resources TIW offers:
       1. 3D printers (requires training)
       2. laser cutters (requires training)
 
@@ -209,47 +206,218 @@ Details on the $60 budget:
 
 Write a one-page requirements document for the system. Refer to labs 3 and 5 for general information about requirements documents. We expect the document to change throughout the project, so keep it up to date as you progress through the design, implementation, and testing phases. Please use the following outline:
 
-1. Overview
-    1. Objectives: Why are we doing this project? What is the purpose?
-    2. Roles and Responsibilities:** Who will do what? What is the purpose?
-    3. Interactions with Existing Systems:** Include this if you are connecting to another board
-2. Function Description
-    1. Functionality: What will the system do precisely?
-    2. Performance: Define the measures and describe how they will be determined.
-    3. Usability: Describe the interfaces. Be quantitative if possible
-3. Deliverables
-    1. Reports: Simply state the reports for Labs 7 and 11 will be written
-    2. Outcomes: Simply copy/paste the Lab 7 and Lab 11 deliverables
+1. **Overview**
+   1. **Objectives:** Why are we doing this project? What is the purpose?
+   2. **Roles and Responsibilities:** Who will do what? What is the purpose?
+   3. **Interactions with Existing Systems:** Include this if you are connecting to another board
+2. **Function Description**
+   1. **Functionality:** What will the system do precisely?
+   2. **Performance:** Define the measures and describe how they will be determined.
+   3. **Usability:** Describe the interfaces. Be quantitative if possible
+3. **Deliverables**
+   1. **Reports:** Simply state the reports for Labs 7 and 11 will be written
+   2. **Outcomes:** Simply copy/paste the Lab 7 and Lab 11 deliverables
 
 ### Parts
+
+List the parts that the system will use. List the locations that you will acquire the parts from:
+
+1. ECE lab checkout desk
+2. Professor's cabinet
+3. Places like [SparkFun](https://www.sparkfun.com/), [Adafruit](https://www.adafruit.com/), or [Pololu](https://www.pololu.com/)
+
+### Pre-preparation Deliverables
+
+1. Initial version of the requriements document
+2. List of parts that the system will use (include the locations that the parts will be acquired from)
+3. Datasheets of all parts that the system will use
+
+You will be judged on the clarity of your project. You should be able to explain what you intend to do and how at an abstract level. This will be similar to an marketing requirements document (MRD) presentation to your TA. An MRD explains what a product does from a user perspective (how can we sell it).
+
+1. Objectives: why are we doing this project? What is the purpose?
+2. Interactions with Existing Systems: How will it fit in?
+3. Terminology: Define terms used in the document.
+4. Functionality: What will the system do precisely?
+5. Usability: Describe the interfaced. Be quantitative if possible.
+6. Outcomes: What are the deliverables? How do we know when it is done?
 
 ---
 
 ## Preparation
 
-### 
+1. Create a bill of materials (BOM) using the `Lab7BOM.xls` template and collect as many of the components as you can. The bill of materials should include all components used within the system, such as: capacitors, cables, connectors, LEDs, ICs, resistors, and your enclosure
+2. Create the schematic (`.sch`) file for the system using [EAGLE](https://www.autodesk.com/products/eagle/overview) or [KiCad](https://www.kicad.org/). You must follow these rules:
+   1. All nets must be named
+   2. All components must have labels (U1, R1, C1, J1, etc) shown in both the schematic and board
+   3. Each IC should have a bypass cap placed as close to the component as possible (look at your component's datasheet to find the recommended size of each bypass capacitor)
+   4. For resistors, specify impedance (10k ohms), wattage (1/4 watt), and tolerance (5%)
+   5. For capacitors specify capacitance (100uF, tolerance (20%), and material (cermaic, tantalum, electrolytic, etc)
+3. Review the datasheets of your components to determine the values of bypass capacitors to improve performance
+4. Be clear how the system will be powered and how the system can be turned on and off. You must use a regulator on the PCB. The typical configuration has a battery or USB plug into the PCB, and off-board power switch, and then the LM2937-3.3 regulator for the 3.3V supply
+5. If the operator needs to use the reset button, bring the reset pin out to a user-reachable negative logic switch
 
-### 
+### Preparation Deliverables
+
+1. Bill of materials
+2. Open your schematic (`.sch`) file and show that it passes ERC
+3. Explanation of how the system will be powered
+
+By preparation day, you should have a very clear idea about your project. You should be able to describe the lower-level interface of the system. This will be like a product requirements document (PRD) presentation to your TA. A PRD eplains how a product will be developed from an engineering perspective (how do we build it).
+
+1. Process: How will the project be developed? 
+2. Roles and Responsibilities: Who will do what?  Who are the clients?
+3. Scope: List the phases and what will be delivered in each phase.
+4. Prototypes: How will intermediate progress be demonstrated?
+5. Performance: Define the measures and describe how they will be determined.
 
 ---
 
-## Procedure
+## Demo
 
 ### Demo 1
 
-1. Place all your components within the 
-2. Consider how the PCB will fit in the enclosure.
+1. Edit your board dimensions so that the board has an area less than or equal to 30in<sup>2</sup>
+2. Create a test plan for your system (this should be a list that explains your procedure for testing and debugging your system):
+   1. What components will you test?
+   2. How will you test those components?
+   3. What are your steps for debugging your circuit?
+   4. What fall back options do you have in case there is an error in your board?
+3. Place all your components within the PCB area. **Do NOT start placing components until completing the TA design review of your `.sch` file.**
+   1. Review the datasheets of your components to determine the placement of capacitors to improve performance
+   2. Place parts so that they do not block each other, for example: a USB port facing toward pins instead of away from them
+   3. How will the PCB be mounted in the enclosure?
+   4. How will you reach the test points for analog debugging?
+   5. How will you reach the test points for digital debugging?
+   6. How does the operator reach the switches?
+   7. How does the operator see the LEDs or LCD screen?
+4. Estimate or measure the supply current required by the entire system
+
+### Demo 1 Deliverables
+
+1. Open your `.brd` file and show/explain your component placement
+2. Explain how external devices will connect to the PCB
+2. Show that your board fits within 30in<sup>2</sup>
+3. Explain your test plan for the system
 
 ### Demo 2
 
-1. 
+1. Collect or order all parts needed to complete the project
+2. Verify that your parts match the footprints on the PCB
+3. Route your components. **Do NOT start routing until your TA has approved your parts placement.**
+   1. Edit the grid size to ensure all your components are placed in exact locations
+      1. Set the grid size by typing `grid <number> <unit>` into the command line above the board
+      2. Set the grid visibility by clicking the grid icon in the top left corner of the screen
+   2. Resize the PCB area so that it corresponds to the enclosure that you selected
+   3. Place the components within the PCB area
+      1. You cannot use auto-place functions (Eagle doesn't have any to begin with)
+      2. All components must be placed by hand
+      3. Intelligently placing your parts will make laying the traces much easier in the future
+      4. Place all bypass capacitors as close to their respective ICs as possible
+      5. Place all through hole components on the top side (SMD components can go on either side)
+      6. Place components in a way to minimize trace lengths and cross-talk
+      7. Place components that connect to each other next to each other
+      8. Place polarized parts in the same orientation if possible
+   4. Route the components on your PCB
+      1. [JLCPCB PCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities)
+         1. View minimum clearance, minimum trace width and spacing, etc.
+         2. Edit your **DRC** accordingly
+      2. You cannot use auto-route functions
+      3. All traces must be routed by hand
+      4. Avoid loops, because loops can pickup EM field noise
+      5. Avoid 90 degree turns (convert them into two 45 degree turns)
+      6. For beginners, it's easier to route your PCB if you keep all vertical traces on one side and all horizontal traces on the other side
+      7. Do not use a ground pour for this PCB
+         1. Place ground and power paths in the shape of a capital E
+      8. Select traces with suitable widths
+         1. [IPC-2221 PCB trace width calculator](http://www.circuitcalculator.com/wordpress/2006/01/31/pcb-trace-width-calculator/)
+         2. [IPC-2152 PCB trace width calculator](https://twcalculator.app.protoexpress.com/)
+         3. [Article on IPC-2152](https://resources.altium.com/p/using-ipc-2152-calculator-designing-standards)
+         4. The copper on your board will have a thickness of 1oz
+         5. Most of the signal traces in the class can be 7 to 10 mils
+         6. Use 20 to 30 mil width traces for power, ground, and signals carrying large currents
+      9. Select vias with suitable sizes
+         1. [IPC-2221 PCB via calculator](http://circuitcalculator.com/wordpress/2006/03/12/pcb-via-calculator/)
+   5. Add silk screens that include:
+      1. Your project's name (top silk)
+      2. Board part number (top silk)
+      3. Your group members' names (top silk)
+      4. Your TAs initials (top silk)
+      5. Date (top silk)
+      6. Purpose of the board (top silk)
+      7. All components must have visible labels (whichever side the component is on)
+      8. Information to assist in construction and debugging (top silk)
+4. Execute a **Design Rule Check (DRC)** and fix any errors that exist
+5. Measure your board's dimensions:
+   1. Click on your board outline
+   2. Execute the info command
+6. **Any fixes that must be done after the deadline will result in 10 points being deducted. If you have any questions, please ask before the deadline.**
+7. Enter your PCB into [jlcpcb.com](https://jlcpcb.com/) and verify that the board can be ordered for around $10 or less plus shipping
+8. Print out the PCB onto paper and ensure that the components fit on the board and the board fits in the enclosure
+9. Breadboard your system as much as possible (breadboard everything that you have components for) to ensure that your system works as intended
+10. Upload your gerber files as a `.zip` to Canvas by the deadline the file should be in the format: `UTX-<year><semester><four-digit-board-number>.zip`
+   1. Get the board number from your TA
+   2. An example file name from Fall 2021 would look like this: `UTX-2021F0001.zip`
+   3. An example file name from Spring 2022 would look like this: `UTX-2022S0001.zip`
+   4. If your file is not uploaded by the deadline, you will have to pay the manufacturing and shipping costs yourself
 
-### Bonus
+### Demo 2 Deliverables
+
+1. Open your `.brd` file and show that is passes DRC and fits within 30in<sup>2</sup>
+2. Show that all components fit on the printed PCB and the printed PCB fits within the enclosure
+3. Show that your breadboard circuit is functional and there are no major design flaws
+4. Show any external devices and explain how they will be powered, connected to the PCB, and communicate with the system
+5. Explain your test plan and if/how it has changed
 
 ---
 
-## 4 Deliverables
+## Report
+
+###  Deliverables
+
+1. Objectives (one page updated requirements document)
+2. Hardware Design
+   1. `.sch` and `.brd` files
+3. Software Design
+   1. Any software written to test hardware should be pushed to Github
+4. Measurement Data
+   1. Total current estimation for the system
+   2. Total cost estimation for the system
+
+### Analysis and Discussion Questions
+
+1. How will you test the system? Write out your test plan in gritty detail.
 
 ---
 
 ## Grading
+
+| Section | Description | Points |
+|---|---|---|
+| Pre-preparation | N/A | 10 |
+| Preparation | N/A | 10 |
+| Demo 1 | N/A | 10 |
+| Demo 2 | N/A | 30 |
+| Complexity | TA is convinced that the project is challenging | 10 |
+| Planning | Break up the project into smaller assignments and assign deadlines to these assignments | 10 |
+| PCB Layout | Final PCB due date is a HARD deadline | 10 |
+| TA Review | Completion grade | 10 |
+| Report: Requirements Document | Due with pre-preparatio, but updated throughout the project | 10 |
+| Report: Schematic | Heavy emphasis on the test plan | 10 |
+| Extra Credit: TIW | TIW 3D printing or laser cutting training | 5 |
+| Extra Credit: SMD Chip | TM4C123 chip used instead of LaunchPad | 10 |
+
+---
+
+## Deadlines
+
+| Section | Due Date |
+|---|---|
+| Pre-preparation | 10/13/2022 |
+| Preparation | 10/18/2022 |
+| Demo 1 | 10/20/2022 |
+| Demo 2 | 10/25/2022 |
+| Report | 10/28/2022 |
+| TA Review | 9am 10/28/2022 |
+| **Final PCB Submission** | 10am 11/01/2022 |
+
+
