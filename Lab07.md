@@ -106,6 +106,8 @@ through that we want. Feel free to modify if necessary.
 
 ### 1.2 Team Size
 
+The team size is 4
+
 > “In the beginning we were a group of nine.
 > 
 > Three are gone, dead.
