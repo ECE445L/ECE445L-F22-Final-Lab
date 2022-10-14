@@ -147,7 +147,7 @@ In Lab 7, you will use either [EAGLE](https://www.autodesk.com/products/eagle/ov
 
 1. The microcontroller must be attached to the PCB board
 2. A PCB for the system must be created
-3. Each group will produce a PCB layout (.sch and .brd file)
+3. Each group will produce a PCB layout (`.sch` and `.brd` file)
 4. There must be at least two inputs, two outputs, and two interrupt service routines
 5. The final system will be an actual device with chips soldered onto the PCB
 6. The final system must fit in an appropriate enclosure

@@ -82,14 +82,15 @@ None
 // TODO: what is the surface mount accelerometer
 
 | Section | Description | Points |
+|---|---|---|
 | Preparation: Parts | Show all parts to the TA | 10 |
 | Preparation: `.sch` File | Most recent `.sch` file | 5 |
 | Preparation: Header Files | Header files for software drivers | 5 |
-| Checkout: Prototype Demonstration and Quality of Design | points will be deducted if you do not have 80% or more of the parts and connectors need for the final project | 25 |
-| Checkout: Top 3 Worries | not identifying a worry is a worry | 5 |
+| Checkout: Prototype Demonstration and Quality of Design | Points will be deducted if you do not have 80% or more of the parts and connectors need for the final project | 25 |
+| Checkout: Top 3 Worries | Not identifying a worry is a worry | 5 |
 | Software Quality: Modularity and Organization | N/A | 10 |
 | Software Quality: Readability | N/A | 10 |
 | Software Quality: Functionality | N/A | 10 |
-| Report: Requirements Document | updated version of the requirements document | 10 |
-| Report: Measurement Data | perfomance data that was collected | 5 |
-| Report: Modified Schematic | identifying any modifications in the PCB that will be needed | 5 |
+| Report: Requirements Document | Updated version of the requirements document | 10 |
+| Report: Measurement Data | Perfomance data that was collected | 5 |
+| Report: Modified Schematic | Identifying any modifications in the PCB that will be needed | 5 |
