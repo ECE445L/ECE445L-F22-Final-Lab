@@ -1,5 +1,22 @@
 # Lab 8 Software Drivers for an Embedded System
 
+## Table of Contents
+- [Lab 8 Software Drivers for an Embedded System](#lab-8-software-drivers-for-an-embedded-system)
+  - [Table of Contents](#table-of-contents)
+  - [Summary](#summary)
+    - [Goals](#goals)
+    - [Team Size](#team-size)
+    - [Review](#review)
+    - [Starter Files](#starter-files)
+    - [Background](#background)
+  - [Preparation](#preparation)
+  - [Procedure](#procedure)
+  - [Checkout](#checkout)
+  - [Report](#report)
+    - [Deliverables](#deliverables)
+    - [Analysis and Discussion Questions](#analysis-and-discussion-questions)
+  - [Grading](#grading)
+
 ## Summary
 
 ### Goals
@@ -32,7 +49,7 @@ None
 
 ### Background
 
-Normally one pases around the design cycle multiple times.However, Labs 7, 8, and 11 represent one pass around the design cycle in this class. In this lab you will create prototype hardware and software implementations. The goal is to verify your collection of chips, resistors, capacitors, and connectors will operate as intended when you get to Lab 11. Furthermore, you will write and test low-level software drivers for all I/O interfaces. The more you develop and test during this lab, the higher the probability your product in Lab 11 will function as intended.
+Normally one passes around the design cycle multiple times. However, Labs 7, 8, and 11 represent one pass around the design cycle in this class. In this lab you will create prototype hardware and software implementations. The goal is to verify your collection of chips, resistors, capacitors, and connectors will operate as intended when you get to Lab 11. Furthermore, you will write and test low-level software drivers for all I/O interfaces. The more you develop and test during this lab, the higher the probability your product in Lab 11 will function as intended.
 
 ---
 
@@ -55,7 +72,7 @@ Normally one pases around the design cycle multiple times.However, Labs 7, 8, an
 
 ## Checkout
 
-show the hardware/software prototype of your system to your TA. Explain how the prototype is different from the final product. Discuss the testing features of your design. Discuss your top three worries about finishing Lab 11 on time.
+Show the hardware/software prototype of your system to your TA. Explain how the prototype is different from the final product. Discuss the testing features of your design. Discuss your top three worries about finishing Lab 11 on time.
 
 ---
 
@@ -78,8 +95,6 @@ None
 ---
 
 ## Grading
-
-// TODO: what is the surface mount accelerometer
 
 | Section | Description | Points |
 |---|---|---|
