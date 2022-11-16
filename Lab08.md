@@ -1,6 +1,7 @@
 # Lab 8 Software Drivers for an Embedded System
 
 ## Table of Contents
+
 - [Lab 8 Software Drivers for an Embedded System](#lab-8-software-drivers-for-an-embedded-system)
   - [Table of Contents](#table-of-contents)
   - [0 Repository Structure](#0-repository-structure)

@@ -428,6 +428,7 @@ By preparation day, you should have a very clear idea about your project. You sh
 | Demo 2: Complexity            | TA is convinced that the project is challenging                                           | 10        |
 | Demo 2: Planning              | Break up the project into smaller assignments and assign deadlines to these assignments   | 10        |
 | Demo 2: PCB Layout            | Final PCB due date is a HARD deadline                                                     | 10        |
+| Demo 2: Q/A                   | Defend your project, work distribution, and schematic/layout for your PCB                 | 10        |
 | TA Review                     | Completion grade                                                                          | 10        |
 | Report: Requirements Document | Due with pre-preparation, but updated throughout the project                              | 10        |
 | Report: Schematic             | Heavy emphasis on the test plan                                                           | 10        |
