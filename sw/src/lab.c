@@ -69,10 +69,10 @@ int main(void) {
     ST7735_FillScreen(ST7735_BLACK);
     ST7735_SetCursor(0, 0);
     ST7735_OutString(
-        "ECE445L Lab 5.\n"
+        "ECE445L Final lab.\n"
         "Press SW1 to start.\n");
     UART_OutString(
-        "ECE445L Lab 5.\r\n"
+        "ECE445L Final lab.\r\n"
         "Press SW1 to start.\r\n");
     Pause();
 

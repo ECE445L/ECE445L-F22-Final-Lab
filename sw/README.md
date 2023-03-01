@@ -4,12 +4,7 @@ This is the template project folder for your lab. Feel free to modify the files
 in here, as long as they remain in this folder. This is where TAs will look for
 when running your project and/or inspecting your code for software quality.
 
-## Coding Style
-
-## Creating a New Project
-
-The first 6 steps have been done for you in this template repository. Click on
-the project file in your explorer to open it up.
+## Creating a New Project (Keil)
 
 1. Open up Keil.
 2. Click on the 'Project' tab on the top toolbar.
